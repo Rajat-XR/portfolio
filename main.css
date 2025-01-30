@@ -206,7 +206,7 @@ header {
     overflow: hidden;
     border-radius: 15px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    transition: all 100ms ease-in-out;
+    transition: all 250ms ease-in-out;
 
     &:hover {
         filter: brightness(80%);
