@@ -209,7 +209,7 @@ header {
     transition: all 100ms ease-in-out;
 
     &:hover {
-        filter: brightness(80%) hue-rotate(250deg);
+        filter: brightness(80%);
         scale: 1.03;
     }
 }
