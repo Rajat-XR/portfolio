@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rajat Jain</title>
+    <link rel="stylesheet" href="main.css">
+    <script defer src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">RAJAT X<span>.</span>R<span>.</span></div>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#stats_section">Work</a></li>
+                <li><a href="#portfolio_section">Projects</a></li>
+                <li><a href="#skills_section">Skills</a></li>
+                <li><a href="#contact_section">Contact</a></li>
+            </ul>
+            <a href="#" class="hire-me">Hire Me</a>
+        </nav>
+    </header>
+
+    <section id="hero_section" class="hero">
+        <div class="hero-content">
+            <p class="intro">Hi, I'm</p>
+            <h1>Rajat Jain</h1>
+            <h2>Web Dev. | AIML | Tech-Enthusiast | Linux</h2>
+            <p class="description">Currently a BCA (AIML) student at Jaipur National University with a passion for
+                technology, artificial intelligence, web development. I thrive on exploring the latest tech tools and
+                innovations, combining creativity with coding to craft amazing products</p>
+            <div class="hero-buttons">
+                <a id="downloadCV" href="#" class="btn primary">Download CV</a>
+                <a href="#contact_section" class="btn secondary">Contact</a>
+            </div>
+        </div>
+        <div id="stats_section" class="hero-image">
+            <img src="assets/hero.png" alt="Mary Hardy">
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="stat">
+            <h3>2+ Years learning</h3>
+            <p>Experience</p>
+        </div>
+        <div class="stat">
+            <h3>8+ Projects</h3>
+            <p>Completed</p>
+        </div>
+        <div class="stat">
+            <h3>5000+ Lines of Code</h3>
+            <p>Across Different Languages</p>
+        </div>
+    </section>
+
+    <section id="portfolio_section" class="portfolio">
+        <h3 class="portfolio-title">Projects</h3>
+        <h2 class="portfolio-subtitle">Some of My <span style="color: #ff5e5e;">Awesome</span> done projects</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <a href="https://rajat-player.web.app/" target="_blank">
+                    <img src="assets/portfolio1.png" alt="Design Art">
+                    <div class="overlay">
+                        <h4>Rajat Media Player</h4>
+                        <p>Feature Rich Web Media Player (with Youtube & Spotify Modes)</p>
+                    </div>
+                </a>
+            </div>
+            <div class="portfolio-item">
+                <a href="https://rajat-xr.github.io/typify/" target="_blank">
+                    <img src="assets/portfolio2.png" alt="Marketing">
+                    <div class="overlay">
+                        <h4>Typify Game</h4>
+                        <p>Engaging Fun Speed Typing Game (with 4 difficulty modes, WPM)</p>
+                    </div>
+                </a>
+            </div>
+            <div class="portfolio-item">
+                <a href="https://rajat-xr.github.io/testing-prototype" target="_blank">
+                    <img src="assets/portfolio3.png" alt="Creative Design">
+                    <div class="overlay">
+                        <h4>Testing ML Project (in Progress...)</h4>
+                        <p>Just a testing tensorflow.js model (using Google's Teachable Machine)</p>
+                    </div>
+                </a>
+            </div>
+            <div class="portfolio-item">
+                <a href="https://rajat-xr.github.io/my-clock/alarm.html" target="_blank">
+                    <img src="assets/portfolio4.png" alt="Programming">
+                    <div id="skills_section" class="overlay">
+                        <h4>Alarm Clock</h4>
+                        <p>Web based Alarms (Contains All time tools - Stopwatch, Clock, Timer)</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="experience">
+        <h3 class="choose-me">Why Choose Me</h3>
+        <h2 class="title">My Experience Area</h2>
+        <div class="experience-container">
+            <div class="left">
+                <div class="skill">
+                    <span>Project Management</span> <span class="percent">90%</span>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 90%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <span>Modern JavaScript</span> <span class="percent">80%</span>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 80%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <span>HTML5</span> <span class="percent">95%</span>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 95%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <span>Cascading Style Sheets</span> <span class="percent">72%</span>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 72%;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="skill">
+                    <span>Communication Skills</span> <span class="percent">50%</span>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 50%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <span>Git & Github</span> <span class="percent">90%</span>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 90%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <span>Web UI Design</span> <span class="percent">49%</span>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 49%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <span>C and C++</span> <span class="percent">70%</span>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 70%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div id="contact_section" class="contact-container">
+            <div class="contact-info">
+                <h1>Contact</h1>
+                <p>Looking forward to hearing from you</p>
+                <h3>Phone</h3>
+                <p>+91 9216477780</p>
+                <h3>Email</h3>
+                <p>rajatjain.dev@gmail.com</p>
+            </div>
+            <div class="contact-form">
+                <form id="contact-form">
+                    <div class="input-group">
+                        <div class="input-box">
+                            <label>First Name *</label>
+                            <input type="text" id="first-name" required>
+                        </div>
+                        <div class="input-box">
+                            <label>Last Name *</label>
+                            <input type="text" id="last-name" required>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <div class="input-box">
+                            <label>Email *</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="input-box">
+                            <label>Subject</label>
+                            <input type="text" id="subject">
+                        </div>
+                    </div>
+                    <div class="message-box">
+                        <label>Message</label>
+                        <textarea id="message"></textarea>
+                    </div>
+                    <button type="submit">Connect to Rajat Jain</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="assets/footer_logo.png" alt="Logo" />
+            </div>
+            <div class="footer-links">
+
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#stats_section">Work</a></li>
+                    <li><a href="#portfolio_section">Projects</a></li>
+                </ul>
+
+                <ul>
+                    <li><a href="#skills_section">Skills</a></li>
+                    <li><a href="#contact_section">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/rajat-xr/" target="_blank" class="social-icon">
+                    <img src="assets/LinkedIn_icon.svg.webp" alt="Linkedin" />
+                </a>
+                <a href="https://github.com/Rajat-XR" target="_blank" id="github_logo" class="social-icon">
+                    <img src="assets/github.png" alt="Github" />
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Rajat Jain. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
