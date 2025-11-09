@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
             })
             .catch(error => {
                 console.error("FAILED...", error);
-                alert("Error sending message. Check console for details.");
+                alert("Contact services are under some bug maintenance");
             });
     });
 });
