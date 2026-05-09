@@ -1,502 +1,411 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rajat Jain - Product Builder & Designer</title>
+  <title>Rajat Jain — Product Builder & Designer</title>
   <meta name="description"
-    content="Rajat is a Product Builder and Designer who leverages AI tools. Google Student Ambassador 2025 & 2026. Building at the intersection of product, design, and artificial intelligence.">
-  <meta name="theme-color" content="#0F0E0C">
+    content="Rajat Jain is a Product Builder and Designer. Google Student Ambassador 2025 & 2026. Building at the intersection of product thinking, design craft, and AI-native tools.">
+  <meta name="theme-color" content="#FAF9F6">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet">
+
+  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: '#FAF9F6',
+            charcoal: '#1A1A1A',
+            terracotta: '#C4663D',
+            taupe: '#8B7355',
+            warm: {
+              100: '#F5F3EE',
+              200: '#EBE8E1',
+              300: '#D4CFC5',
+              400: '#B8B0A2',
+            }
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Styles -->
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body>
+<body class="bg-cream text-charcoal font-sans antialiased overflow-x-hidden">
 
   <!-- ═══ NAV ═══ -->
-  <nav class="nav" id="nav">
-    <a href="#hero" class="nav-logo">Rajat.</a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Work</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
-      <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="12" r="5" />
-        <line x1="12" y1="1" x2="12" y2="3" />
-        <line x1="12" y1="21" x2="12" y2="23" />
-        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-        <line x1="1" y1="12" x2="3" y2="12" />
-        <line x1="21" y1="12" x2="23" y2="12" />
-        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-      </svg>
-      <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-      </svg>
-    </button>
-    <button class="nav-toggle" aria-label="Toggle navigation">
-      <span></span><span></span><span></span>
-    </button>
+  <nav id="nav" class="fixed top-0 left-0 w-full z-50 transition-all duration-500">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-10 py-5">
+      <a href="#hero" class="font-serif text-xl tracking-wide text-charcoal no-underline">Rajat.</a>
+      <ul class="hidden md:flex items-center gap-8 list-none m-0 p-0">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#work" class="nav-link">Work</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
   </nav>
 
-  <!-- Mobile Nav Overlay -->
-  <div class="mobile-nav">
-    <a href="#about">About</a>
-    <a href="#projects">Work</a>
-    <a href="#experience">Experience</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
-  </div>
-
   <!-- ═══ HERO ═══ -->
-  <section class="hero" id="hero">
-    <div class="hero-content">
-      <div class="hero-badge reveal">Google Student Ambassador '25 & '26</div>
-      <h1 class="reveal">Product Builder<br>& <em>Designer</em></h1>
-      <p class="hero-subtitle reveal">Building at the intersection of product thinking, design craft, and AI-native
-        tools.
-        Turning ideas into experiences people remember.</p>
-      <p class="hero-quote reveal">"Context is the new code. Agents are the new team."</p>
-      <a href="#projects" class="hero-cta reveal">
-        View my work
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-        </svg>
-      </a>
+  <section id="hero" class="min-h-screen flex flex-col items-center justify-center text-center px-6 relative">
+    <div
+      class="hero-badge inline-flex items-center gap-2 text-xs font-medium tracking-widest uppercase text-taupe border border-warm-300 rounded-full px-5 py-2 mb-10 opacity-0">
+      <span class="w-1.5 h-1.5 rounded-full bg-terracotta inline-block"></span>
+      Google Student Ambassador '25 & '26
     </div>
-
-    <!-- Animated Abstract Graphic -->
-    <div class="hero-graphic reveal" aria-hidden="true">
-      <div class="hg-scene">
-        <!-- Orbital rings -->
-        <div class="hg-orbit hg-orbit--1"></div>
-        <div class="hg-orbit hg-orbit--2"></div>
-        <div class="hg-orbit hg-orbit--3"></div>
-
-        <!-- Central glowing core -->
-        <div class="hg-core">
-          <div class="hg-core-inner"></div>
-          <div class="hg-core-pulse"></div>
-        </div>
-
-        <!-- Floating geometric shapes -->
-        <div class="hg-shape hg-shape--1"></div>
-        <div class="hg-shape hg-shape--2"></div>
-        <div class="hg-shape hg-shape--3"></div>
-        <div class="hg-shape hg-shape--4"></div>
-        <div class="hg-shape hg-shape--5"></div>
-
-        <!-- Particle dots -->
-        <div class="hg-dot hg-dot--1"></div>
-        <div class="hg-dot hg-dot--2"></div>
-        <div class="hg-dot hg-dot--3"></div>
-        <div class="hg-dot hg-dot--4"></div>
-        <div class="hg-dot hg-dot--5"></div>
-        <div class="hg-dot hg-dot--6"></div>
-        <div class="hg-dot hg-dot--7"></div>
-        <div class="hg-dot hg-dot--8"></div>
-
-        <!-- Connecting lines -->
-        <svg class="hg-lines" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <line x1="200" y1="200" x2="320" y2="100" stroke="currentColor" stroke-width="0.5" opacity="0.2">
-            <animate attributeName="opacity" values="0.1;0.3;0.1" dur="4s" repeatCount="indefinite" />
-          </line>
-          <line x1="200" y1="200" x2="80" y2="300" stroke="currentColor" stroke-width="0.5" opacity="0.2">
-            <animate attributeName="opacity" values="0.1;0.25;0.1" dur="5s" repeatCount="indefinite" />
-          </line>
-          <line x1="200" y1="200" x2="330" y2="280" stroke="currentColor" stroke-width="0.5" opacity="0.15">
-            <animate attributeName="opacity" values="0.08;0.2;0.08" dur="6s" repeatCount="indefinite" />
-          </line>
-          <line x1="200" y1="200" x2="100" y2="120" stroke="currentColor" stroke-width="0.5" opacity="0.15">
-            <animate attributeName="opacity" values="0.1;0.22;0.1" dur="3.5s" repeatCount="indefinite" />
-          </line>
-          <!-- Arc decorations -->
-          <path d="M140 80 Q200 40 260 80" stroke="currentColor" stroke-width="0.5" fill="none" opacity="0.12">
-            <animate attributeName="opacity" values="0.08;0.18;0.08" dur="7s" repeatCount="indefinite" />
-          </path>
-          <path d="M140 320 Q200 360 260 320" stroke="currentColor" stroke-width="0.5" fill="none" opacity="0.1">
-            <animate attributeName="opacity" values="0.06;0.15;0.06" dur="8s" repeatCount="indefinite" />
-          </path>
-        </svg>
-      </div>
+    <h1 id="hero-title" class="hero-name font-serif font-normal leading-none tracking-tight text-charcoal">
+      RAJAT<br>JAIN
+    </h1>
+    <p id="hero-subtitle" class="hero-role mt-6 text-lg md:text-xl font-light tracking-wide text-taupe opacity-0">
+      Product Builder & <em class="font-serif text-terracotta not-italic">Designer</em>
+    </p>
+    <p id="hero-desc" class="hero-subtitle mt-6 max-w-xl text-base font-light leading-relaxed text-warm-400 opacity-0">
+      Building at the intersection of product thinking, design craft, and AI-native tools. Turning ideas into
+      experiences people remember.
+    </p>
+    <div class="hero-scroll-cue absolute bottom-10 flex flex-col items-center gap-3 opacity-0">
+      <span class="text-xs tracking-widest uppercase text-warm-300 font-light">scroll</span>
+      <div class="scroll-line w-px h-10 bg-gradient-to-b from-warm-300 to-transparent"></div>
     </div>
-
-    <div class="hero-scroll-line"></div>
   </section>
-
-  <div class="divider"></div>
 
   <!-- ═══ ABOUT ═══ -->
-  <section class="section" id="about">
-    <div class="reveal">
+  <section id="about" class="py-28 md:py-40 px-6">
+    <div class="max-w-3xl mx-auto text-center mb-12">
       <span class="section-label">About</span>
-      <h2 class="section-title">Crafting products with<br>intention & clarity</h2>
+      <h2 class="section-title font-serif text-4xl md:text-5xl font-normal mt-4 leading-tight">
+        Crafting products with<br>intention & <em class="text-terracotta">clarity</em>
+      </h2>
     </div>
-    <div class="about-grid">
-      <div class="about-text">
-        <p class="reveal">I'm <strong>Rajat</strong>, a Product Builder and Designer who leverages AI tools to create
-          meaningful digital experiences. Currently in my final year of BCA (AI/ML) at Jaipur National University,
-          Jaipur — but my work has always extended far beyond the classroom.</p>
-        <p class="reveal">From building Chrome extensions with 200+ active users to crafting disaster relief dashboards
-          and 3D particle art generators — I think in systems, design in context, and ship things people actually use.
-        </p>
-        <p class="reveal">As a <strong>Google Student Ambassador (2025 & 2026)</strong>, I'm deeply embedded in the
-          developer ecosystem, exploring agentic workflows, prompt engineering, and the edges of what AI-native products
-          can become.</p>
+    <div class="golden-col max-w-[750px] mx-auto">
+      <p class="text-base md:text-lg font-light leading-[1.9] text-charcoal/70 mb-6">
+        I'm <strong class="font-medium text-charcoal">Rajat</strong>, a Product Builder and Designer who leverages AI
+        tools to create meaningful digital experiences. Currently in my final year of BCA (AI/ML) at Jaipur National
+        University, Jaipur — but my work has always extended far beyond the classroom.
+      </p>
+      <p class="text-base md:text-lg font-light leading-[1.9] text-charcoal/70 mb-6">
+        From building Chrome extensions with 200+ active users to crafting disaster relief dashboards and 3D particle
+        art generators — I think in systems, design in context, and ship things people actually use.
+      </p>
+      <p class="text-base md:text-lg font-light leading-[1.9] text-charcoal/70 mb-12">
+        As a <strong class="font-medium text-charcoal">Google Student Ambassador (2025 & 2026)</strong>, I'm deeply
+        embedded in the developer ecosystem, exploring agentic workflows, prompt engineering, and the edges of what
+        AI-native products can become.
+      </p>
+    </div>
+    <div class="max-w-3xl mx-auto flex flex-wrap justify-center gap-x-10 gap-y-4 border-t border-warm-200 pt-8">
+      <div class="about-meta-item text-center">
+        <span class="block text-xs tracking-widest uppercase text-warm-400 mb-1">Location</span>
+        <span class="text-sm font-medium text-charcoal">Jaipur, India</span>
       </div>
-      <div class="about-details reveal">
-        <div class="about-detail-item">
-          <div class="label">Location</div>
-          <div class="value">Jaipur, Rajasthan<small>India</small></div>
-        </div>
-        <div class="about-detail-item">
-          <div class="label">Education</div>
-          <div class="value">BCA (AI/ML)<small>Jaipur National University</small></div>
-        </div>
-        <div class="about-detail-item">
-          <div class="label">Focus</div>
-          <div class="value">AI-Native Products<small>Design × Engineering</small></div>
-        </div>
-        <div class="about-detail-item">
-          <div class="label">Program</div>
-          <div class="value">Google GSA<small>2025 & 2026 Cohort</small></div>
-        </div>
+      <div class="about-meta-item text-center">
+        <span class="block text-xs tracking-widest uppercase text-warm-400 mb-1">Education</span>
+        <span class="text-sm font-medium text-charcoal">BCA (AI/ML)</span>
+      </div>
+      <div class="about-meta-item text-center">
+        <span class="block text-xs tracking-widest uppercase text-warm-400 mb-1">Focus</span>
+        <span class="text-sm font-medium text-charcoal">AI-Native Products</span>
+      </div>
+      <div class="about-meta-item text-center">
+        <span class="block text-xs tracking-widest uppercase text-warm-400 mb-1">Program</span>
+        <span class="text-sm font-medium text-charcoal">Google GSA '25 & '26</span>
       </div>
     </div>
   </section>
 
-  <div class="divider"></div>
-
-  <!-- ═══ PROJECTS ═══ -->
-  <section class="section" id="projects">
-    <div class="reveal">
+  <!-- ═══ WORK ═══ -->
+  <section id="work" class="py-28 md:py-40 px-6">
+    <div class="max-w-3xl mx-auto text-center mb-6">
       <span class="section-label">Selected Work</span>
-      <h2 class="section-title">Things I've built</h2>
-      <p class="section-desc">A selection of products, tools, and creative projects — each driven by a real problem or a
-        creative itch.</p>
+      <h2 class="section-title font-serif text-4xl md:text-5xl font-normal mt-4 leading-tight">
+        Things I've <em class="text-terracotta">built</em>
+      </h2>
     </div>
-    <div class="projects-grid">
+    <div class="max-w-[750px] mx-auto text-center mb-16">
+      <p class="text-base font-light leading-relaxed text-charcoal/60">
+        A selection of products, tools, and creative projects — each driven by a real problem or a creative itch.
+      </p>
+    </div>
 
-      <!-- Featured: ReliefRadar -->
-      <a href="https://the-relief-radar.web.app/" target="_blank" rel="noopener" class="project-card featured reveal">
-        <div style="flex:1">
-          <div class="project-top">
-            <div class="project-icon">🌍</div>
-            <svg class="project-link-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-              viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
-            </svg>
-          </div>
-          <div class="project-type">Google Build with AI (Solution Challenge 2026)</div>
-          <h3>ReliefRadar</h3>
-          <p>A browser-based NGO disaster relief triage dashboard that helps coordinate emergency response. Built with
-            real-time mapping, AI-powered analysis, and Firebase backend for live data sync.</p>
-          <div class="project-tags">
-            <span class="project-tag">React</span>
-            <span class="project-tag">Vite</span>
-            <span class="project-tag">Leaflet.js</span>
-            <span class="project-tag">Gemma 4</span>
-            <span class="project-tag">Firebase</span>
-            <span class="project-tag">Tailwind</span>
-          </div>
+    <div class="projects-list max-w-5xl mx-auto flex flex-col gap-4">
+
+      <!-- ReliefRadar -->
+      <a href="https://the-relief-radar.web.app/" target="_blank" rel="noopener"
+        class="project-card group block border border-warm-200 rounded-2xl p-8 md:p-10 no-underline transition-all duration-400 hover:border-terracotta/30 hover:shadow-lg hover:shadow-terracotta/5 border-l-4 border-l-terracotta">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="text-2xl">🌍</span>
+          <span class="text-xs tracking-widest uppercase text-taupe font-medium">Google Build with AI · Solution
+            Challenge 2026</span>
+        </div>
+        <h3
+          class="font-serif text-2xl md:text-3xl text-charcoal mb-3 group-hover:text-terracotta transition-colors duration-300">
+          ReliefRadar</h3>
+        <p class="text-sm md:text-base font-light leading-relaxed text-charcoal/60 mb-5 max-w-2xl">A browser-based NGO
+          disaster relief triage dashboard that helps coordinate emergency response. Built with real-time mapping,
+          AI-powered analysis, and Firebase backend for live data sync.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="project-tag">React</span><span class="project-tag">Vite</span><span
+            class="project-tag">Leaflet.js</span><span class="project-tag">Gemma 4</span><span
+            class="project-tag">Firebase</span><span class="project-tag">Tailwind</span>
         </div>
       </a>
 
       <!-- Zenithe -->
-      <a href="https://zenithe-ai.web.app/" target="_blank" rel="noopener" class="project-card reveal">
-        <div class="project-top">
-          <div class="project-icon">✦</div>
-          <svg class="project-link-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-            viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
-          </svg>
+      <a href="https://zenithe-ai.web.app/" target="_blank" rel="noopener"
+        class="project-card group block border border-warm-200 rounded-2xl p-8 md:p-10 no-underline transition-all duration-400 hover:border-terracotta/30 hover:shadow-lg hover:shadow-terracotta/5">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="text-2xl">✦</span>
+          <span class="text-xs tracking-widest uppercase text-taupe font-medium">Creative Tool</span>
         </div>
-        <div class="project-type">Creative Tool</div>
-        <h3>Zenithe</h3>
-        <p>A 3D particle art generator powered by WebGL and AI. Supports image, 3D model, QR code, and text input with
-          video export and social sharing capabilities.</p>
-        <div class="project-tags">
-          <span class="project-tag">WebGL</span>
-          <span class="project-tag">AI</span>
-          <span class="project-tag">Three.js</span>
-          <span class="project-tag">Canvas</span>
+        <h3
+          class="font-serif text-2xl md:text-3xl text-charcoal mb-3 group-hover:text-terracotta transition-colors duration-300">
+          Zenithe</h3>
+        <p class="text-sm md:text-base font-light leading-relaxed text-charcoal/60 mb-5 max-w-2xl">A 3D particle art
+          generator powered by WebGL and AI. Supports image, 3D model, QR code, and text input with video export and
+          social sharing capabilities.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="project-tag">WebGL</span><span class="project-tag">AI</span><span
+            class="project-tag">Three.js</span><span class="project-tag">Canvas</span>
         </div>
       </a>
 
       <!-- Chat Exporter -->
       <a href="https://chromewebstore.google.com/detail/chat-exporter-for-google/pmccmopibnkjfmaddlloincblhcnmndd"
-        target="_blank" rel="noopener" class="project-card reveal">
-        <div class="project-top">
-          <div class="project-icon">⬡</div>
-          <svg class="project-link-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-            viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
-          </svg>
+        target="_blank" rel="noopener"
+        class="project-card group block border border-warm-200 rounded-2xl p-8 md:p-10 no-underline transition-all duration-400 hover:border-terracotta/30 hover:shadow-lg hover:shadow-terracotta/5">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="text-2xl">⬡</span>
+          <span class="text-xs tracking-widest uppercase text-taupe font-medium">Chrome Extension · 200+ weekly active
+            users</span>
         </div>
-        <div class="project-type">Chrome Extension</div>
-        <h3>Chat Exporter for AI Studio</h3>
-        <p>Export conversations from Google AI Studio as formatted PDFs with full model metadata. Published on Chrome
-          Web Store with growing adoption.</p>
-        <div class="project-tags">
-          <span class="project-tag">Chrome API</span>
-          <span class="project-tag">JavaScript</span>
-          <span class="project-tag">PDF</span>
-        </div>
-        <div class="project-stat">
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24"
-            stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-          </svg>
-          200+ weekly active users
+        <h3
+          class="font-serif text-2xl md:text-3xl text-charcoal mb-3 group-hover:text-terracotta transition-colors duration-300">
+          Chat Exporter for AI Studio</h3>
+        <p class="text-sm md:text-base font-light leading-relaxed text-charcoal/60 mb-5 max-w-2xl">Export conversations
+          from Google AI Studio as formatted PDFs with full model metadata. Published on Chrome Web Store with growing
+          adoption.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="project-tag">Chrome API</span><span class="project-tag">JavaScript</span><span
+            class="project-tag">PDF</span>
         </div>
       </a>
 
       <!-- Playful -->
-      <a href="https://playfulone.web.app/" target="_blank" rel="noopener" class="project-card reveal">
-        <div class="project-top">
-          <div class="project-icon">▲</div>
-          <svg class="project-link-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-            viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
-          </svg>
+      <a href="https://playfulone.web.app/" target="_blank" rel="noopener"
+        class="project-card group block border border-warm-200 rounded-2xl p-8 md:p-10 no-underline transition-all duration-400 hover:border-terracotta/30 hover:shadow-lg hover:shadow-terracotta/5">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="text-2xl">▲</span>
+          <span class="text-xs tracking-widest uppercase text-taupe font-medium">Product</span>
         </div>
-        <div class="project-type">Product</div>
-        <h3>Playful Media Player</h3>
-        <p>An AI-native product built with Remotion — 27 files, 13 scenes, 3,300 frames of programmatic video
-          generation. Presented at university faculty demo.</p>
-        <div class="project-tags">
-          <span class="project-tag">Remotion</span>
-          <span class="project-tag">TypeScript</span>
-          <span class="project-tag">Video</span>
+        <h3
+          class="font-serif text-2xl md:text-3xl text-charcoal mb-3 group-hover:text-terracotta transition-colors duration-300">
+          Playful Media Player</h3>
+        <p class="text-sm md:text-base font-light leading-relaxed text-charcoal/60 mb-5 max-w-2xl">An AI-native product
+          built with Remotion — 27 files, 13 scenes, 3,300 frames of programmatic video generation. Presented at
+          university faculty demo.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="project-tag">Remotion</span><span class="project-tag">TypeScript</span><span
+            class="project-tag">Video</span>
         </div>
       </a>
 
       <!-- Aethecraft Studios -->
-      <div class="project-card reveal">
-        <div class="project-top">
-          <div class="project-icon">♫</div>
-          <svg class="project-link-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-            viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
-          </svg>
+      <div
+        class="project-card group block border border-warm-200 rounded-2xl p-8 md:p-10 transition-all duration-400 hover:border-terracotta/30 hover:shadow-lg hover:shadow-terracotta/5">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="text-2xl">♫</span>
+          <span class="text-xs tracking-widest uppercase text-taupe font-medium">YouTube Channel</span>
         </div>
-        <div class="project-type">YouTube Channel</div>
-        <h3>Aethecraft Studios</h3>
-        <p>AI-generated cinematic and ambient/lo-fi music content. Full production pipeline using Suno AI for music,
-          RunwayML for visuals, and Google Flow for composition.</p>
-        <div class="project-tags">
-          <span class="project-tag">Suno AI</span>
-          <span class="project-tag">RunwayML</span>
-          <span class="project-tag">Google Flow</span>
+        <h3
+          class="font-serif text-2xl md:text-3xl text-charcoal mb-3 group-hover:text-terracotta transition-colors duration-300">
+          Aethecraft Studios</h3>
+        <p class="text-sm md:text-base font-light leading-relaxed text-charcoal/60 mb-5 max-w-2xl">AI-generated
+          cinematic and ambient/lo-fi music content. Full production pipeline using Suno AI for music, RunwayML for
+          visuals, and Google Flow for composition.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="project-tag">Suno AI</span><span class="project-tag">RunwayML</span><span
+            class="project-tag">Google Flow</span>
         </div>
       </div>
 
       <!-- CS50W -->
-      <div class="project-card reveal">
-        <div class="project-top">
-          <div class="project-icon">◈</div>
-          <svg class="project-link-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-            viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
-          </svg>
+      <div
+        class="project-card group block border border-warm-200 rounded-2xl p-8 md:p-10 transition-all duration-400 hover:border-terracotta/30 hover:shadow-lg hover:shadow-terracotta/5">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="text-2xl">◈</span>
+          <span class="text-xs tracking-widest uppercase text-taupe font-medium">Academic</span>
         </div>
-        <div class="project-type">Academic</div>
-        <h3>Harvard CS50W — Web Programming</h3>
-        <p>Completed all five projects (P0–P4) from Harvard's CS50 Web Programming with Python and JavaScript.
-          Full-stack applications with Django backend.</p>
-        <div class="project-tags">
-          <span class="project-tag">Python</span>
-          <span class="project-tag">Django</span>
-          <span class="project-tag">JavaScript</span>
-          <span class="project-tag">SQL</span>
+        <h3
+          class="font-serif text-2xl md:text-3xl text-charcoal mb-3 group-hover:text-terracotta transition-colors duration-300">
+          Harvard CS50W — Web Programming</h3>
+        <p class="text-sm md:text-base font-light leading-relaxed text-charcoal/60 mb-5 max-w-2xl">Completed all five
+          projects (P0–P4) from Harvard's CS50 Web Programming with Python and JavaScript. Full-stack applications with
+          Django backend.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="project-tag">Python</span><span class="project-tag">Django</span><span
+            class="project-tag">JavaScript</span><span class="project-tag">SQL</span>
         </div>
       </div>
 
     </div>
   </section>
-
-  <div class="divider"></div>
 
   <!-- ═══ EXPERIENCE ═══ -->
-  <section class="section" id="experience">
-    <div class="reveal">
+  <section id="experience" class="py-28 md:py-40 px-6">
+    <div class="max-w-3xl mx-auto text-center mb-16">
       <span class="section-label">Experience</span>
-      <h2 class="section-title">Where I've contributed</h2>
-      <p class="section-desc">Roles, programs, and collaborations that have shaped how I think about products and
-        communities.</p>
+      <h2 class="section-title font-serif text-4xl md:text-5xl font-normal mt-4 leading-tight">
+        Where I've <em class="text-terracotta">contributed</em>
+      </h2>
     </div>
-    <div class="exp-list">
-      <div class="exp-item reveal">
-        <div class="exp-year">2025 — Present</div>
-        <div class="exp-content">
-          <h3>Google Student Ambassador</h3>
-          <div class="exp-org">Google · Gemini Program</div>
-          <p>Selected for both the 2025 and 2026 cohorts. Active in the Gemini ecosystem — exploring agentic workflows,
-            MCP, and prompt engineering through live demos and community engagement.</p>
-        </div>
-      </div>
-      <div class="exp-item reveal">
-        <div class="exp-year">2025</div>
-        <div class="exp-content">
-          <h3>Graphic Designer</h3>
-          <div class="exp-org">SAADAA</div>
-          <p>Designed all eight creative assets for a Unisex Winterwear Collection campaign — carousels, stories, and
-            social media content with end-to-end creative ownership.</p>
-        </div>
-      </div>
-      <div class="exp-item reveal">
-        <div class="exp-year">2025</div>
-        <div class="exp-content">
-          <h3>Open Source Contributor</h3>
-          <div class="exp-org">dash-to-dock · GNOME</div>
-          <p>Merged PR #2542 — Romanian translation contribution to the dash-to-dock GNOME Shell extension. First open
-            source contribution shipped to production.</p>
-        </div>
-      </div>
-      <div class="exp-item reveal">
-        <div class="exp-year">2024 — 2025</div>
-        <div class="exp-content">
-          <h3>NLP Research Project Lead</h3>
-          <div class="exp-org">Jaipur National University</div>
-          <p>Leading a sentiment analysis research project on customer reviews — 23,486 rows of e-commerce data,
-            TextBlob pipeline, full academic deliverables. Primary active contributor.</p>
-        </div>
-      </div>
+
+    <div class="max-w-[750px] mx-auto">
+
+      <article class="exp-item py-8">
+        <div class="text-sm font-serif text-warm-400 tracking-wide mb-2">2025 — Present</div>
+        <h3 class="font-serif text-xl md:text-2xl text-charcoal mb-1">Google Student Ambassador</h3>
+        <div class="text-sm text-taupe mb-3">Google · Gemini Program</div>
+        <p class="text-sm md:text-base font-light leading-[1.9] text-charcoal/60">Selected for both the 2025 and 2026
+          cohorts. Active in the Gemini ecosystem — exploring agentic workflows, MCP, and prompt engineering through
+          live demos and community engagement.</p>
+      </article>
+
+      <hr class="border-warm-200">
+
+      <article class="exp-item py-8">
+        <div class="text-sm font-serif text-warm-400 tracking-wide mb-2">2025</div>
+        <h3 class="font-serif text-xl md:text-2xl text-charcoal mb-1">Graphic Designer</h3>
+        <div class="text-sm text-taupe mb-3">SAADAA</div>
+        <p class="text-sm md:text-base font-light leading-[1.9] text-charcoal/60">Designed all eight creative assets for
+          a Unisex Winterwear Collection campaign — carousels, stories, and social media content with end-to-end
+          creative ownership.</p>
+      </article>
+
+      <hr class="border-warm-200">
+
+      <article class="exp-item py-8">
+        <div class="text-sm font-serif text-warm-400 tracking-wide mb-2">2025</div>
+        <h3 class="font-serif text-xl md:text-2xl text-charcoal mb-1">Open Source Contributor</h3>
+        <div class="text-sm text-taupe mb-3">dash-to-dock · GNOME</div>
+        <p class="text-sm md:text-base font-light leading-[1.9] text-charcoal/60">Merged PR #2542 — Romanian translation
+          contribution to the dash-to-dock GNOME Shell extension. First open source contribution shipped to production.
+        </p>
+      </article>
+
+      <hr class="border-warm-200">
+
+      <article class="exp-item py-8">
+        <div class="text-sm font-serif text-warm-400 tracking-wide mb-2">2024 — 2025</div>
+        <h3 class="font-serif text-xl md:text-2xl text-charcoal mb-1">NLP Research Project Lead</h3>
+        <div class="text-sm text-taupe mb-3">Jaipur National University</div>
+        <p class="text-sm md:text-base font-light leading-[1.9] text-charcoal/60">Leading a sentiment analysis research
+          project on customer reviews — 23,486 rows of e-commerce data, TextBlob pipeline, full academic deliverables.
+          Primary active contributor.</p>
+      </article>
+
     </div>
   </section>
-
-  <div class="divider"></div>
 
   <!-- ═══ SKILLS ═══ -->
-  <section class="section" id="skills">
-    <div class="reveal">
+  <section id="skills" class="py-28 md:py-40 px-6">
+    <div class="max-w-3xl mx-auto text-center mb-16">
       <span class="section-label">Capabilities</span>
-      <h2 class="section-title">What I work with</h2>
-      <p class="section-desc">Tools, technologies, and disciplines across the full spectrum of product building.</p>
+      <h2 class="section-title font-serif text-4xl md:text-5xl font-normal mt-4 leading-tight">
+        What I <em class="text-terracotta">work with</em>
+      </h2>
     </div>
-    <div class="skills-grid">
-      <div class="skill-group reveal">
-        <div class="skill-group-title">Product & Design</div>
-        <div class="skill-pills">
-          <span class="skill-pill">Product Building</span>
-          <span class="skill-pill">UI/UX Design</span>
-          <span class="skill-pill">Branding</span>
-          <span class="skill-pill">Graphic Design</span>
-          <span class="skill-pill">Remotion</span>
-          <span class="skill-pill">Figma</span>
-        </div>
-      </div>
-      <div class="skill-group reveal">
-        <div class="skill-group-title">AI & Machine Learning</div>
-        <div class="skill-pills">
-          <span class="skill-pill">Gemini API</span>
-          <span class="skill-pill">Prompt Engineering</span>
-          <span class="skill-pill">Agentic Workflows</span>
-          <span class="skill-pill">MCP</span>
-          <span class="skill-pill">NLP</span>
-          <span class="skill-pill">TextBlob</span>
-        </div>
-      </div>
-      <div class="skill-group reveal">
-        <div class="skill-group-title">Frontend</div>
-        <div class="skill-pills">
-          <span class="skill-pill">TypeScript</span>
-          <span class="skill-pill">React</span>
-          <span class="skill-pill">Vite</span>
-          <span class="skill-pill">HTML/CSS/JS</span>
-          <span class="skill-pill">Tailwind</span>
-          <span class="skill-pill">WebGL</span>
-          <span class="skill-pill">Chrome Extensions</span>
-        </div>
-      </div>
-      <div class="skill-group reveal">
-        <div class="skill-group-title">Backend & Cloud</div>
-        <div class="skill-pills">
-          <span class="skill-pill">Firebase</span>
-          <span class="skill-pill">Google Cloud</span>
-          <span class="skill-pill">Django</span>
-          <span class="skill-pill">Python</span>
-          <span class="skill-pill">PWA</span>
-          <span class="skill-pill">SQL</span>
-        </div>
-      </div>
-      <div class="skill-group reveal">
-        <div class="skill-group-title">AI Tools</div>
-        <div class="skill-pills">
-          <span class="skill-pill">Google AI Studio</span>
-          <span class="skill-pill">Claude</span>
-          <span class="skill-pill">Suno AI</span>
-          <span class="skill-pill">RunwayML</span>
-          <span class="skill-pill">Perplexity</span>
-        </div>
-      </div>
+    <div class="skills-flow max-w-4xl mx-auto flex flex-wrap justify-center gap-3">
+      <span class="skill-pill">Product Building</span>
+      <span class="skill-pill">UI/UX Design</span>
+      <span class="skill-pill">Branding</span>
+      <span class="skill-pill">Graphic Design</span>
+      <span class="skill-pill">Figma</span>
+      <span class="skill-pill">Remotion</span>
+      <span class="skill-pill">Gemini API</span>
+      <span class="skill-pill">Prompt Engineering</span>
+      <span class="skill-pill">Agentic Workflows</span>
+      <span class="skill-pill">MCP</span>
+      <span class="skill-pill">NLP</span>
+      <span class="skill-pill">TypeScript</span>
+      <span class="skill-pill">React</span>
+      <span class="skill-pill">Vite</span>
+      <span class="skill-pill">HTML/CSS/JS</span>
+      <span class="skill-pill">Tailwind</span>
+      <span class="skill-pill">WebGL</span>
+      <span class="skill-pill">Chrome Extensions</span>
+      <span class="skill-pill">Firebase</span>
+      <span class="skill-pill">Google Cloud</span>
+      <span class="skill-pill">Django</span>
+      <span class="skill-pill">Python</span>
+      <span class="skill-pill">PWA</span>
+      <span class="skill-pill">SQL</span>
+      <span class="skill-pill">Google AI Studio</span>
+      <span class="skill-pill">Claude</span>
+      <span class="skill-pill">Suno AI</span>
+      <span class="skill-pill">RunwayML</span>
+      <span class="skill-pill">Perplexity</span>
     </div>
   </section>
 
-  <div class="divider"></div>
-
   <!-- ═══ CONTACT ═══ -->
-  <section class="section" id="contact">
-    <div class="contact-wrap">
-      <span class="section-label reveal" style="justify-content:center">Get in Touch</span>
-      <h2 class="section-title reveal">Let's build<br>something <em
-          style="font-family:var(--font-display);color:var(--accent)">together</em></h2>
-      <p class="section-desc reveal" style="margin:1rem auto 0;text-align:center">Whether it's a product idea, a design
+  <section id="contact" class="py-28 md:py-40 px-6">
+    <div class="max-w-3xl mx-auto text-center mb-6">
+      <span class="section-label">Get in Touch</span>
+      <h2 class="section-title font-serif text-4xl md:text-5xl font-normal mt-4 leading-tight">
+        Let's build something<br><em class="text-terracotta">together</em>
+      </h2>
+    </div>
+    <div class="max-w-[750px] mx-auto text-center mb-10">
+      <p class="text-base font-light leading-relaxed text-charcoal/60">Whether it's a product idea, a design
         collaboration, or just a conversation about AI-native tools — I'm always open to connecting.</p>
-      <div class="contact-links reveal">
-        <a href="https://github.com/rajat-xr" target="_blank" rel="noopener" class="contact-link">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-            <path
-              d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-          </svg>
-          GitHub
-        </a>
-        <a href="https://linkedin.com/in/rajat-xr" target="_blank" rel="noopener" class="contact-link">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-            <path
-              d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-          </svg>
-          LinkedIn
-        </a>
-        <a href="https://youtube.com/@RajatAethecraftStudios" target="_blank" rel="noopener" class="contact-link">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-            <path
-              d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-          </svg>
-          YouTube
-        </a>
-        <a href="https://g.dev/therajatjain" target="_blank" rel="noopener" class="contact-link">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-            <path
-              d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" />
-            <path
-              d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
-            <path
-              d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
-            <path
-              d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
-          </svg>
-          Google Dev
-        </a>
-      </div>
+    </div>
+    <div class="flex items-center justify-center gap-4 text-sm">
+      <a href="https://github.com/rajat-xr" target="_blank" rel="noopener" class="contact-link">GitHub</a>
+      <span class="text-warm-300">·</span>
+      <a href="https://linkedin.com/in/rajatxr" target="_blank" rel="noopener" class="contact-link">LinkedIn</a>
+      <span class="text-warm-300">·</span>
+      <a href="https://youtube.com/@RajatAethecraftStudios" target="_blank" rel="noopener"
+        class="contact-link">YouTube</a>
+      <span class="text-warm-300">·</span>
+      <a href="https://g.dev/therajatjain" target="_blank" rel="noopener" class="contact-link">Google Dev</a>
     </div>
   </section>
 
   <!-- ═══ FOOTER ═══ -->
-  <footer class="footer">
-    <div class="footer-text">© 2025 Rajat. Designed with <span>intention</span>.</div>
-    <div class="footer-text">Jaipur, India</div>
+  <footer class="py-10 px-6 text-center">
+    <p class="text-xs tracking-widest uppercase text-warm-400">© 2025 <em class="font-serif not-italic">Rajat.</em>
+      Jaipur, India</p>
   </footer>
 
+  <!-- ═══ SCRIPTS ═══ -->
+  <!-- Animation & Scroll Ecosystem (local) -->
+  <script src="lib/gsap.min.js"></script>
+  <script src="lib/ScrollTrigger.min.js"></script>
+  <script src="lib/lenis.min.js"></script>
+  <script src="lib/SplitType.js"></script>
+  <script src="lib/matter.min.js"></script>
+  <!-- App Logic (loaded last) -->
   <script src="assets/js/script.js"></script>
+
 </body>
 
 </html>
