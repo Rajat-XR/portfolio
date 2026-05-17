@@ -6,7 +6,7 @@
 // ─── 1. ECOSYSTEM SETUP ───
 
 // Register ScrollTrigger plugin
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, Draggable);
 
 // Initialize Lenis smooth scroll
 const lenis = new Lenis({
@@ -39,6 +39,34 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+
+
+// ─── 2b. MOBILE MENU TOGGLE ───
+
+const hamburgerBtn = document.getElementById('hamburger-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+
+if (hamburgerBtn && mobileMenu) {
+  hamburgerBtn.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('is-open');
+    hamburgerBtn.classList.toggle('is-open');
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  // Close menu when a link is clicked
+  mobileMenu.querySelectorAll('.mobile-menu-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      mobileMenu.classList.remove('is-open');
+      hamburgerBtn.classList.remove('is-open');
+      document.body.style.overflow = '';
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        lenis.scrollTo(target, { offset: -80 });
+      }
+    });
+  });
+}
 
 
 // ─── 3. NAV SCROLL STATE ───
@@ -128,6 +156,13 @@ heroTL
     stagger: 0.05,
     ease: 'power4.out',
   }, '-=0.3')
+  // Playground items float in right after title starts
+  .to('.draggable-item', {
+    opacity: 1,
+    duration: 0.8,
+    stagger: 0.12,
+    ease: 'power2.out',
+  }, '-=0.6')
   // Subtitle lines rise up
   .to(subtitleSplit.lines, {
     y: '0%',
@@ -135,7 +170,7 @@ heroTL
     duration: 0.8,
     stagger: 0.1,
     ease: 'power3.out',
-  }, '-=0.4')
+  }, '-=0.8')
   // Description lines rise up
   .to(descSplit.lines, {
     y: '0%',
@@ -149,6 +184,70 @@ heroTL
     opacity: 1,
     duration: 0.6,
   }, '-=0.2');
+
+
+// ─── 5b. HERO PLAYGROUND — GSAP Draggable ───
+
+let topZIndex = 10;
+let hintAnimations = []; // Store hint tweens so we can kill them on first interact
+
+Draggable.create('.draggable-item', {
+  type: 'x,y',
+  edgeResistance: 0.65,
+  bounds: '#hero',
+  inertia: false,
+  cursor: 'grab',
+  activeCursor: 'grabbing',
+  allowNativeTouchScrolling: false,
+  onPress: function () {
+    // Kill any hint animation on this element
+    hintAnimations.forEach(anim => anim.kill());
+    hintAnimations = [];
+
+    topZIndex++;
+    const isSquiggle = this.target.classList.contains('hero-squiggle');
+
+    gsap.to(this.target, {
+      scale: 1.08,
+      boxShadow: isSquiggle ? 'none' : '0 12px 40px rgba(26, 26, 26, 0.18), 0 4px 12px rgba(26, 26, 26, 0.1)',
+      zIndex: topZIndex,
+      duration: 0.25,
+      ease: 'power2.out',
+      overwrite: 'auto',
+    });
+    this.target.classList.add('draggable-active');
+  },
+  onRelease: function () {
+    const isSquiggle = this.target.classList.contains('hero-squiggle');
+
+    gsap.to(this.target, {
+      scale: 1,
+      boxShadow: isSquiggle ? 'none' : '0 4px 16px rgba(26, 26, 26, 0.08), 0 1px 4px rgba(26, 26, 26, 0.05)',
+      duration: 0.4,
+      ease: 'elastic.out(1, 0.5)',
+      overwrite: 'auto',
+    });
+    this.target.classList.remove('draggable-active');
+  },
+});
+
+// ─── 5c. DRAG HINT — Gentle floating nudge ───
+// After entrance animation completes, gently float items to hint "I'm draggable"
+heroTL.eventCallback('onComplete', () => {
+  document.querySelectorAll('.draggable-item').forEach((item, i) => {
+    const anim = gsap.to(item, {
+      y: '-=8',
+      duration: 1.6 + (i * 0.2),
+      repeat: -1,
+      yoyo: true,
+      ease: 'sine.inOut',
+      delay: i * 0.3,
+    });
+    hintAnimations.push(anim);
+  });
+});
+
+console.log('Hero Playground Draggable Initialized');
 
 
 // ─── 6. SCROLL-TRIGGERED REVEALS ───

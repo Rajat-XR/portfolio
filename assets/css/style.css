@@ -83,13 +83,141 @@ a {
 /* ─── HERO ─── */
 .hero-name {
   font-size: clamp(4.5rem, 13vw, 10rem);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   line-height: 0.9;
+  font-weight: 800;
 }
 
 /* SplitType character styling */
 #hero-title .char {
   display: inline-block;
+}
+
+/* ─── HERO PLAYGROUND ─── */
+
+/* Polaroid cards */
+.polaroid-card {
+  background: #fff;
+  padding: 10px 10px 30px 10px;
+  border-radius: 4px;
+  box-shadow: 0 4px 16px rgba(26, 26, 26, 0.08), 0 1px 4px rgba(26, 26, 26, 0.05);
+  cursor: grab;
+  transition: box-shadow 0.3s ease;
+  width: 160px;
+  user-select: none;
+  opacity: 0;
+}
+
+.polaroid-card:active {
+  cursor: grabbing;
+}
+
+.polaroid-card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 2px;
+  display: block;
+  pointer-events: none;
+}
+
+.polaroid-caption {
+  display: block;
+  text-align: center;
+  font-family: 'Montserrat', system-ui, sans-serif;
+  font-style: normal;
+  font-size: 0.7rem;
+  color: #8B7355;
+  margin-top: 10px;
+  letter-spacing: 0.02em;
+}
+
+/* AI Sticker badge */
+.hero-sticker {
+  background: linear-gradient(135deg, #C4663D 0%, #D4884A 50%, #C4663D 100%);
+  color: #FAF9F6;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 10px 22px;
+  border-radius: 100px;
+  box-shadow: 0 4px 20px rgba(196, 102, 61, 0.25), 0 1px 4px rgba(196, 102, 61, 0.15);
+  cursor: grab;
+  user-select: none;
+  white-space: nowrap;
+  transition: box-shadow 0.3s ease;
+  opacity: 0;
+}
+
+.hero-sticker:active {
+  cursor: grabbing;
+}
+
+/* SVG Squiggle */
+.hero-squiggle {
+  cursor: grab;
+  user-select: none;
+  box-shadow: none !important;
+  background: transparent !important;
+  border: none !important;
+  opacity: 0;
+}
+
+.hero-squiggle:active {
+  cursor: grabbing;
+}
+
+.hero-squiggle svg path {
+  transition: stroke 0.3s ease;
+}
+
+.hero-squiggle:hover svg path {
+  stroke: #D4884A;
+}
+
+/* Draggable base — prevent outlines and touch artifacts */
+.draggable-item {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: none;
+}
+
+.draggable-item:focus,
+.draggable-item:active {
+  outline: none !important;
+}
+
+/* Draggable active state (applied via GSAP) */
+.draggable-active {
+  z-index: 100;
+}
+
+/* Responsive: scale down playground on small screens */
+@media (max-width: 768px) {
+  .polaroid-card {
+    width: 110px;
+    padding: 6px 6px 20px 6px;
+  }
+
+  .polaroid-card img {
+    height: 80px;
+  }
+
+  .polaroid-caption {
+    font-size: 0.6rem;
+    margin-top: 6px;
+  }
+
+  .hero-sticker {
+    font-size: 0.65rem;
+    padding: 8px 16px;
+  }
+
+  .hero-squiggle svg {
+    width: 90px;
+    height: 40px;
+  }
 }
 
 /* ─── SECTION LABELS ─── */
@@ -115,6 +243,7 @@ a {
 
 /* ─── SECTION TITLES ─── */
 .section-title em {
+  font-family: 'Playfair Display', Georgia, serif;
   font-style: italic;
 }
 
@@ -189,25 +318,30 @@ a {
 }
 
 /* ─── SCROLL CUE ANIMATION ─── */
-.scroll-line {
-  animation: scroll-pulse 2s ease-in-out infinite;
+.scroll-chevron {
+  animation: scroll-bounce 2s ease-in-out infinite;
 }
 
-@keyframes scroll-pulse {
+.scroll-arrow-2 {
+  animation: scroll-fade 2s ease-in-out infinite;
+  animation-delay: 0.15s;
+}
+
+@keyframes scroll-bounce {
   0%, 100% {
-    opacity: 0;
-    transform: scaleY(0);
-    transform-origin: top;
+    transform: translateY(0);
   }
   50% {
-    opacity: 1;
-    transform: scaleY(1);
-    transform-origin: top;
+    transform: translateY(6px);
   }
-  100% {
-    opacity: 0;
-    transform: scaleY(1);
-    transform-origin: bottom;
+}
+
+@keyframes scroll-fade {
+  0%, 100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.6;
   }
 }
 
@@ -223,6 +357,64 @@ a {
   transform: translateY(30px);
 }
 
+/* ─── MOBILE MENU ─── */
+.mobile-menu {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.mobile-menu.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-menu-link {
+  text-decoration: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: color 0.3s ease;
+}
+
+.mobile-menu.is-open .mobile-menu-link {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mobile-menu-link:hover,
+.mobile-menu-link:active {
+  color: #C4663D;
+}
+
+/* Stagger the link transitions */
+.mobile-menu-link:nth-child(1) { transition-delay: 0.1s; }
+.mobile-menu-link:nth-child(2) { transition-delay: 0.15s; }
+.mobile-menu-link:nth-child(3) { transition-delay: 0.2s; }
+.mobile-menu-link:nth-child(4) { transition-delay: 0.25s; }
+
+/* Hamburger button */
+#hamburger-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Hamburger → X morph */
+#hamburger-btn.is-open .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(4px, 4px);
+}
+
+#hamburger-btn.is-open .hamburger-line:nth-child(2) {
+  opacity: 0;
+  transform: translateX(10px);
+}
+
+#hamburger-btn.is-open .hamburger-line:nth-child(3) {
+  width: 1.5rem;
+  transform: rotate(-45deg) translate(4px, -4px);
+}
+
 /* ─── RESPONSIVE ─── */
 @media (max-width: 768px) {
   .hero-name {
@@ -231,5 +423,30 @@ a {
 
   .hero-scroll-cue {
     display: none;
+  }
+
+  /* Hide bottom polaroids and squiggle on mobile to reduce clutter */
+  .draggable-item:nth-child(n+4) {
+    display: none;
+  }
+
+  /* Reposition remaining elements for mobile */
+  .polaroid-card {
+    width: 100px;
+    padding: 5px 5px 18px 5px;
+  }
+
+  .polaroid-card img {
+    height: 70px;
+  }
+
+  .polaroid-caption {
+    font-size: 0.55rem;
+    margin-top: 5px;
+  }
+
+  .hero-sticker {
+    font-size: 0.6rem;
+    padding: 7px 14px;
   }
 }
