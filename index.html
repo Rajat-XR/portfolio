@@ -12,9 +12,12 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,400;1,700&display=block">
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,400;1,700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,400;1,700&display=block"
     rel="stylesheet">
+
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
@@ -50,12 +53,13 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
     /* Custom Cursor Styles */
-    body.has-custom-cursor, 
+    body.has-custom-cursor,
     body.has-custom-cursor * {
       cursor: none !important;
     }
-    
-    #custom-cursor, #cursor-dot {
+
+    #custom-cursor,
+    #cursor-dot {
       pointer-events: none;
       z-index: 9999;
     }
@@ -372,7 +376,8 @@
       <div class="work-right hidden md:block md:w-[63%]">
         <div class="work-preview-sticky">
           <div class="work-preview-container">
-            <img class="work-preview-img active" data-index="0" src="assets/images/project-playful.png" alt="Playful preview">
+            <img class="work-preview-img active" data-index="0" src="assets/images/project-playful.png"
+              alt="Playful preview">
             <img class="work-preview-img" data-index="1" src="assets/images/project-chatexporter.png"
               alt="Chat Exporter preview">
             <img class="work-preview-img" data-index="2" src="assets/images/project-zenithe.png" alt="Zenithe preview">
@@ -490,14 +495,17 @@
     <div class="hidden md:block w-full relative pt-4">
       <div class="flex justify-center items-center relative z-10 -mb-2 mt-4">
         <div class="relative inline-flex flex-col items-center ml-20">
-          <span class="font-serif italic text-2xl text-charcoal/80" style="font-family: 'Caveat', cursive, serif;">You can drag the icons and shapes</span>
-          <svg class="absolute -left-16 -top-2 w-16 h-16 text-charcoal/40" viewBox="0 0 60 80" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <span class="font-serif italic text-2xl text-charcoal/80" style="font-family: 'Caveat', cursive, serif;">You
+            can drag the icons and shapes</span>
+          <svg class="absolute -left-16 -top-2 w-16 h-16 text-charcoal/40" viewBox="0 0 60 80" fill="none"
+            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M55 5 C 30 15, 10 40, 10 75" />
             <path d="M 0 65 L 10 75 L 20 68" />
           </svg>
         </div>
       </div>
-      <div id="physics-canvas" class="w-full h-[450px] relative overflow-hidden cursor-grab active:cursor-grabbing"></div>
+      <div id="physics-canvas" class="w-full h-[450px] relative overflow-hidden cursor-grab active:cursor-grabbing">
+      </div>
     </div>
   </section>
 
@@ -527,7 +535,8 @@
 
   <!-- ═══ FOOTER ═══ -->
   <footer class="pt-24 pb-8 relative bg-cream flex flex-col items-center border-t border-warm-200 mt-20">
-    <div class="w-full max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center mb-16 text-xs tracking-widest uppercase text-taupe font-medium">
+    <div
+      class="w-full max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center mb-16 text-xs tracking-widest uppercase text-taupe font-medium">
       <p>© 2026 Rajat Jain</p>
       <div class="flex items-center gap-6 mt-6 md:mt-0">
         <a href="#about" class="hover:text-charcoal transition-colors">About</a>
@@ -539,17 +548,21 @@
 
     <!-- Big Typographic Name -->
     <div class="w-full flex justify-center items-end select-none mt-8">
-      <h2 id="footer-name" class="font-sans font-bold text-charcoal tracking-tighter leading-none w-full text-center whitespace-nowrap" 
-          style="font-size: 19vw;">
+      <h2 id="footer-name"
+        class="font-sans font-bold text-charcoal tracking-tighter leading-none w-full text-center whitespace-nowrap"
+        style="font-size: 19vw;">
         Rajat Jain
       </h2>
     </div>
   </footer>
 
   <!-- ═══ CUSTOM CURSOR ═══ -->
-  <div id="custom-cursor" class="hidden md:flex fixed top-0 left-0 justify-center items-center rounded-full will-change-transform opacity-0 pointer-events-none z-[9999] bg-charcoal overflow-hidden origin-center" style="transform: translate(-50%, -50%); width: 16px; height: 16px;">
+  <div id="custom-cursor"
+    class="hidden md:flex fixed top-0 left-0 justify-center items-center rounded-full will-change-transform opacity-0 pointer-events-none z-[9999] bg-charcoal overflow-hidden origin-center"
+    style="transform: translate(-50%, -50%); width: 16px; height: 16px;">
     <div class="cursor-content flex items-center justify-center gap-2 whitespace-nowrap opacity-0 scale-50">
-      <svg class="cursor-icon hidden w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <svg class="cursor-icon hidden w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
         <line x1="7" y1="17" x2="17" y2="7"></line>
         <polyline points="7 7 17 7 17 17"></polyline>
       </svg>
