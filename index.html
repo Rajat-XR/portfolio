@@ -48,6 +48,18 @@
 
   <!-- Custom Styles -->
   <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* Custom Cursor Styles */
+    body.has-custom-cursor, 
+    body.has-custom-cursor * {
+      cursor: none !important;
+    }
+    
+    #custom-cursor, #cursor-dot {
+      pointer-events: none;
+      z-index: 9999;
+    }
+  </style>
 </head>
 
 <body class="bg-cream text-charcoal font-sans antialiased overflow-x-hidden">
@@ -230,123 +242,146 @@
       </p>
     </div>
 
-    <div class="projects-list max-w-5xl mx-auto flex flex-col gap-4">
+    <!-- Scrollytelling Split Layout -->
+    <div class="work-split max-w-7xl mx-auto flex flex-col md:flex-row md:justify-between relative">
 
-      <!-- ReliefRadar -->
-      <a href="https://the-relief-radar.web.app/" target="_blank" rel="noopener"
-        class="project-card group block border border-warm-200 rounded-2xl p-8 md:p-10 no-underline transition-all duration-400 hover:border-terracotta/30 hover:shadow-lg hover:shadow-terracotta/5 border-l-4 border-l-terracotta">
-        <div class="flex items-center gap-3 mb-4">
-          <span class="text-2xl">🌍</span>
-          <span class="text-xs tracking-widest uppercase text-taupe font-medium">Google Build with AI · Solution
-            Challenge 2026</span>
-        </div>
-        <h3
-          class="font-serif text-2xl md:text-3xl text-charcoal mb-3 group-hover:text-terracotta transition-colors duration-300">
-          ReliefRadar</h3>
-        <p class="text-sm md:text-base font-light leading-relaxed text-charcoal/60 mb-5 max-w-2xl">A browser-based NGO
-          disaster relief triage dashboard that helps coordinate emergency response. Built with real-time mapping,
-          AI-powered analysis, and Firebase backend for live data sync.</p>
-        <div class="flex flex-wrap gap-2">
-          <span class="project-tag">React</span><span class="project-tag">Vite</span><span
-            class="project-tag">Leaflet.js</span><span class="project-tag">Gemma 4</span><span
-            class="project-tag">Firebase</span><span class="project-tag">Tailwind</span>
-        </div>
-      </a>
+      <!-- LEFT: Scrolling project text -->
+      <div class="work-left md:w-[30%] md:pr-8 shrink-0">
 
-      <!-- Zenithe -->
-      <a href="https://zenithe-ai.web.app/" target="_blank" rel="noopener"
-        class="project-card group block border border-warm-200 rounded-2xl p-8 md:p-10 no-underline transition-all duration-400 hover:border-terracotta/30 hover:shadow-lg hover:shadow-terracotta/5">
-        <div class="flex items-center gap-3 mb-4">
-          <span class="text-2xl">✦</span>
-          <span class="text-xs tracking-widest uppercase text-taupe font-medium">Creative Tool</span>
+        <!-- 01 Playful -->
+        <div class="work-item" data-index="0">
+          <span class="work-number">01</span>
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-lg">▲</span>
+            <span class="text-xs tracking-widest uppercase text-taupe font-medium">Product</span>
+          </div>
+          <h3 class="font-serif text-2xl md:text-3xl font-bold text-charcoal mb-3">
+            <a href="https://playfulone.web.app/" target="_blank" rel="noopener"
+              class="hover:text-terracotta transition-colors duration-300">Playful Media Player</a>
+          </h3>
+          <p class="text-sm md:text-base font-light leading-relaxed text-charcoal/60 mb-5">An AI-native product built
+            with Remotion — 27 files, 13 scenes, 3,300 frames of programmatic video generation. Presented at university
+            faculty demo.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="project-tag">Remotion</span><span class="project-tag">TypeScript</span><span
+              class="project-tag">Video</span>
+          </div>
         </div>
-        <h3
-          class="font-serif text-2xl md:text-3xl text-charcoal mb-3 group-hover:text-terracotta transition-colors duration-300">
-          Zenithe</h3>
-        <p class="text-sm md:text-base font-light leading-relaxed text-charcoal/60 mb-5 max-w-2xl">A 3D particle art
-          generator powered by WebGL and AI. Supports image, 3D model, QR code, and text input with video export and
-          social sharing capabilities.</p>
-        <div class="flex flex-wrap gap-2">
-          <span class="project-tag">WebGL</span><span class="project-tag">AI</span><span
-            class="project-tag">Three.js</span><span class="project-tag">Canvas</span>
-        </div>
-      </a>
 
-      <!-- Chat Exporter -->
-      <a href="https://chromewebstore.google.com/detail/chat-exporter-for-google/pmccmopibnkjfmaddlloincblhcnmndd"
-        target="_blank" rel="noopener"
-        class="project-card group block border border-warm-200 rounded-2xl p-8 md:p-10 no-underline transition-all duration-400 hover:border-terracotta/30 hover:shadow-lg hover:shadow-terracotta/5">
-        <div class="flex items-center gap-3 mb-4">
-          <span class="text-2xl">⬡</span>
-          <span class="text-xs tracking-widest uppercase text-taupe font-medium">Chrome Extension · 350+ weekly active
-            users</span>
+        <!-- 02 Chat Exporter -->
+        <div class="work-item" data-index="1">
+          <span class="work-number">02</span>
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-lg">⬡</span>
+            <span class="text-xs tracking-widest uppercase text-taupe font-medium">Chrome Extension · 350+ weekly active
+              users</span>
+          </div>
+          <h3 class="font-serif text-2xl md:text-3xl font-bold text-charcoal mb-3">
+            <a href="https://chromewebstore.google.com/detail/chat-exporter-for-google/pmccmopibnkjfmaddlloincblhcnmndd"
+              target="_blank" rel="noopener" class="hover:text-terracotta transition-colors duration-300">Chat Exporter
+              for AI Studio</a>
+          </h3>
+          <p class="text-sm md:text-base font-light leading-relaxed text-charcoal/60 mb-5">Export conversations from
+            Google AI Studio as formatted PDFs with full model metadata. Published on Chrome Web Store with growing
+            adoption.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="project-tag">Chrome API</span><span class="project-tag">JavaScript</span><span
+              class="project-tag">PDF</span>
+          </div>
         </div>
-        <h3
-          class="font-serif text-2xl md:text-3xl text-charcoal mb-3 group-hover:text-terracotta transition-colors duration-300">
-          Chat Exporter for AI Studio</h3>
-        <p class="text-sm md:text-base font-light leading-relaxed text-charcoal/60 mb-5 max-w-2xl">Export conversations
-          from Google AI Studio as formatted PDFs with full model metadata. Published on Chrome Web Store with growing
-          adoption.</p>
-        <div class="flex flex-wrap gap-2">
-          <span class="project-tag">Chrome API</span><span class="project-tag">JavaScript</span><span
-            class="project-tag">PDF</span>
-        </div>
-      </a>
 
-      <!-- Playful -->
-      <a href="https://playfulone.web.app/" target="_blank" rel="noopener"
-        class="project-card group block border border-warm-200 rounded-2xl p-8 md:p-10 no-underline transition-all duration-400 hover:border-terracotta/30 hover:shadow-lg hover:shadow-terracotta/5">
-        <div class="flex items-center gap-3 mb-4">
-          <span class="text-2xl">▲</span>
-          <span class="text-xs tracking-widest uppercase text-taupe font-medium">Product</span>
+        <!-- 03 Zenithe -->
+        <div class="work-item" data-index="2">
+          <span class="work-number">03</span>
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-lg">✦</span>
+            <span class="text-xs tracking-widest uppercase text-taupe font-medium">Creative Tool</span>
+          </div>
+          <h3 class="font-serif text-2xl md:text-3xl font-bold text-charcoal mb-3">
+            <a href="https://zenithe-ai.web.app/" target="_blank" rel="noopener"
+              class="hover:text-terracotta transition-colors duration-300">Zenithe</a>
+          </h3>
+          <p class="text-sm md:text-base font-light leading-relaxed text-charcoal/60 mb-5">A 3D particle art generator
+            powered by WebGL and AI. Supports image, 3D model, QR code, and text input with video export and social
+            sharing capabilities.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="project-tag">WebGL</span><span class="project-tag">AI</span><span
+              class="project-tag">Three.js</span><span class="project-tag">Canvas</span>
+          </div>
         </div>
-        <h3
-          class="font-serif text-2xl md:text-3xl text-charcoal mb-3 group-hover:text-terracotta transition-colors duration-300">
-          Playful Media Player</h3>
-        <p class="text-sm md:text-base font-light leading-relaxed text-charcoal/60 mb-5 max-w-2xl">An AI-native product
-          built with Remotion — 27 files, 13 scenes, 3,300 frames of programmatic video generation. Presented at
-          university faculty demo.</p>
-        <div class="flex flex-wrap gap-2">
-          <span class="project-tag">Remotion</span><span class="project-tag">TypeScript</span><span
-            class="project-tag">Video</span>
-        </div>
-      </a>
 
-      <!-- Aethecraft Studios -->
-      <div
-        class="project-card group block border border-warm-200 rounded-2xl p-8 md:p-10 transition-all duration-400 hover:border-terracotta/30 hover:shadow-lg hover:shadow-terracotta/5">
-        <div class="flex items-center gap-3 mb-4">
-          <span class="text-2xl">♫</span>
-          <span class="text-xs tracking-widest uppercase text-taupe font-medium">YouTube Channel</span>
+        <!-- 04 ReliefRadar -->
+        <div class="work-item" data-index="3">
+          <span class="work-number">04</span>
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-lg">🌍</span>
+            <span class="text-xs tracking-widest uppercase text-taupe font-medium">Google Build with AI · Solution
+              Challenge 2026</span>
+          </div>
+          <h3 class="font-serif text-2xl md:text-3xl font-bold text-charcoal mb-3">
+            <a href="https://the-relief-radar.web.app/" target="_blank" rel="noopener"
+              class="hover:text-terracotta transition-colors duration-300">ReliefRadar</a>
+          </h3>
+          <p class="text-sm md:text-base font-light leading-relaxed text-charcoal/60 mb-5">A browser-based NGO disaster
+            relief triage dashboard that helps coordinate emergency response. Built with real-time mapping, AI-powered
+            analysis, and Firebase backend for live data sync.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="project-tag">React</span><span class="project-tag">Vite</span><span
+              class="project-tag">Leaflet.js</span><span class="project-tag">Gemma 4</span><span
+              class="project-tag">Firebase</span><span class="project-tag">Tailwind</span>
+          </div>
         </div>
-        <h3
-          class="font-serif text-2xl md:text-3xl text-charcoal mb-3 group-hover:text-terracotta transition-colors duration-300">
-          Aethecraft Studios</h3>
-        <p class="text-sm md:text-base font-light leading-relaxed text-charcoal/60 mb-5 max-w-2xl">AI-generated
-          cinematic and ambient/lo-fi music content. Full production pipeline using Suno AI for music, RunwayML for
-          visuals, and Google Flow for composition.</p>
-        <div class="flex flex-wrap gap-2">
-          <span class="project-tag">Suno AI</span><span class="project-tag">RunwayML</span><span
-            class="project-tag">Google Flow</span>
+
+        <!-- 05 Aethecraft Studios -->
+        <div class="work-item" data-index="4">
+          <span class="work-number">05</span>
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-lg">♫</span>
+            <span class="text-xs tracking-widest uppercase text-taupe font-medium">YouTube Channel</span>
+          </div>
+          <h3 class="font-serif text-2xl md:text-3xl font-bold text-charcoal mb-3">Aethecraft Studios</h3>
+          <p class="text-sm md:text-base font-light leading-relaxed text-charcoal/60 mb-5">AI-generated cinematic and
+            ambient/lo-fi music content. Full production pipeline using Suno AI for music, RunwayML for visuals, and
+            Google Flow for composition.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="project-tag">Suno AI</span><span class="project-tag">RunwayML</span><span
+              class="project-tag">Google Flow</span>
+          </div>
         </div>
+
+        <!-- 06 CS50W -->
+        <div class="work-item" data-index="5">
+          <span class="work-number">06</span>
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-lg">◈</span>
+            <span class="text-xs tracking-widest uppercase text-taupe font-medium">Academic</span>
+          </div>
+          <h3 class="font-serif text-2xl md:text-3xl font-bold text-charcoal mb-3">Harvard CS50W — Web Programming</h3>
+          <p class="text-sm md:text-base font-light leading-relaxed text-charcoal/60 mb-5">Completed all five projects
+            (P0–P4) from Harvard's CS50 Web Programming with Python and JavaScript. Full-stack applications with Django
+            backend.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="project-tag">Python</span><span class="project-tag">Django</span><span
+              class="project-tag">JavaScript</span><span class="project-tag">SQL</span>
+          </div>
+        </div>
+
       </div>
 
-      <!-- CS50W -->
-      <div
-        class="project-card group block border border-warm-200 rounded-2xl p-8 md:p-10 transition-all duration-400 hover:border-terracotta/30 hover:shadow-lg hover:shadow-terracotta/5">
-        <div class="flex items-center gap-3 mb-4">
-          <span class="text-2xl">◈</span>
-          <span class="text-xs tracking-widest uppercase text-taupe font-medium">Academic</span>
-        </div>
-        <h3
-          class="font-serif text-2xl md:text-3xl text-charcoal mb-3 group-hover:text-terracotta transition-colors duration-300">
-          Harvard CS50W — Web Programming</h3>
-        <p class="text-sm md:text-base font-light leading-relaxed text-charcoal/60 mb-5 max-w-2xl">Completed all five
-          projects (P0–P4) from Harvard's CS50 Web Programming with Python and JavaScript. Full-stack applications with
-          Django backend.</p>
-        <div class="flex flex-wrap gap-2">
-          <span class="project-tag">Python</span><span class="project-tag">Django</span><span
-            class="project-tag">JavaScript</span><span class="project-tag">SQL</span>
+      <!-- RIGHT: Sticky image panel -->
+      <div class="work-right hidden md:block md:w-[63%]">
+        <div class="work-preview-sticky">
+          <div class="work-preview-container">
+            <img class="work-preview-img active" data-index="0" src="assets/images/project-playful.png" alt="Playful preview">
+            <img class="work-preview-img" data-index="1" src="assets/images/project-chatexporter.png"
+              alt="Chat Exporter preview">
+            <img class="work-preview-img" data-index="2" src="assets/images/project-zenithe.png" alt="Zenithe preview">
+            <img class="work-preview-img" data-index="3" src="assets/images/project-reliefradar.png"
+              alt="ReliefRadar preview">
+            <img class="work-preview-img" data-index="4" src="assets/images/project-aethecraft.png"
+              alt="Aethecraft Studios preview">
+            <img class="work-preview-img" data-index="5" src="assets/images/project-cs50w.png" alt="CS50W preview">
+          </div>
         </div>
       </div>
 
@@ -417,7 +452,9 @@
         What I <em class="text-terracotta">work with</em>
       </h2>
     </div>
-    <div class="skills-flow max-w-4xl mx-auto flex flex-wrap justify-center gap-3">
+
+    <!-- Static pills — Mobile only -->
+    <div class="skills-flow max-w-4xl mx-auto flex flex-wrap justify-center gap-3 block md:hidden">
       <span class="skill-pill">Product Building</span>
       <span class="skill-pill">UI/UX Design</span>
       <span class="skill-pill">Branding</span>
@@ -448,6 +485,20 @@
       <span class="skill-pill">RunwayML</span>
       <span class="skill-pill">Perplexity</span>
     </div>
+
+    <!-- Physics Sandbox — Desktop only -->
+    <div class="hidden md:block w-full relative pt-4">
+      <div class="flex justify-center items-center relative z-10 -mb-2 mt-4">
+        <div class="relative inline-flex flex-col items-center ml-20">
+          <span class="font-serif italic text-2xl text-charcoal/80" style="font-family: 'Caveat', cursive, serif;">You can drag the icons and shapes</span>
+          <svg class="absolute -left-16 -top-2 w-16 h-16 text-charcoal/40" viewBox="0 0 60 80" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M55 5 C 30 15, 10 40, 10 75" />
+            <path d="M 0 65 L 10 75 L 20 68" />
+          </svg>
+        </div>
+      </div>
+      <div id="physics-canvas" class="w-full h-[450px] relative overflow-hidden cursor-grab active:cursor-grabbing"></div>
+    </div>
   </section>
 
   <!-- ═══ CONTACT ═══ -->
@@ -475,10 +526,36 @@
   </section>
 
   <!-- ═══ FOOTER ═══ -->
-  <footer class="py-10 px-6 text-center">
-    <p class="text-xs tracking-widest uppercase text-warm-400">© 2025 <em class="font-serif not-italic">Rajat.</em>
-      Jaipur, India</p>
+  <footer class="pt-24 pb-8 relative bg-cream flex flex-col items-center border-t border-warm-200 mt-20">
+    <div class="w-full max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center mb-16 text-xs tracking-widest uppercase text-taupe font-medium">
+      <p>© 2026 Rajat Jain</p>
+      <div class="flex items-center gap-6 mt-6 md:mt-0">
+        <a href="#about" class="hover:text-charcoal transition-colors">About</a>
+        <a href="#work" class="hover:text-charcoal transition-colors">Work</a>
+        <a href="#contact" class="hover:text-charcoal transition-colors">Contact</a>
+      </div>
+      <p class="mt-6 md:mt-0">Jaipur, India</p>
+    </div>
+
+    <!-- Big Typographic Name -->
+    <div class="w-full flex justify-center items-end select-none mt-8">
+      <h2 id="footer-name" class="font-sans font-bold text-charcoal tracking-tighter leading-none w-full text-center whitespace-nowrap" 
+          style="font-size: 19vw;">
+        Rajat Jain
+      </h2>
+    </div>
   </footer>
+
+  <!-- ═══ CUSTOM CURSOR ═══ -->
+  <div id="custom-cursor" class="hidden md:flex fixed top-0 left-0 justify-center items-center rounded-full will-change-transform opacity-0 pointer-events-none z-[9999] bg-charcoal overflow-hidden origin-center" style="transform: translate(-50%, -50%); width: 16px; height: 16px;">
+    <div class="cursor-content flex items-center justify-center gap-2 whitespace-nowrap opacity-0 scale-50">
+      <svg class="cursor-icon hidden w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="7" y1="17" x2="17" y2="7"></line>
+        <polyline points="7 7 17 7 17 17"></polyline>
+      </svg>
+      <span class="cursor-text text-white font-medium text-[13px] tracking-wide"></span>
+    </div>
+  </div>
 
   <!-- ═══ SCRIPTS ═══ -->
   <!-- Animation & Scroll Ecosystem (local) -->

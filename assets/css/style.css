@@ -247,9 +247,82 @@ a {
   font-style: italic;
 }
 
-/* ─── PROJECT CARDS ─── */
-.project-card {
-  cursor: pointer;
+/* ─── WORK SCROLLYTELLING ─── */
+.work-item {
+  padding: 3rem 0;
+  border-bottom: 1px solid #EBE8E1;
+  opacity: 0.3;
+  transition: opacity 0.5s ease;
+  position: relative;
+}
+
+.work-item:first-child {
+  padding-top: 0;
+}
+
+.work-item:last-child {
+  border-bottom: none;
+}
+
+.work-item.is-active {
+  opacity: 1 !important;
+}
+
+@media (min-width: 768px) {
+  .work-item {
+    padding: 25vh 0;
+    border-bottom: none;
+  }
+  .work-item:first-child {
+    padding-top: 6vh;
+  }
+  .work-item:last-child {
+    padding-bottom: 8vh;
+  }
+}
+
+.work-number {
+  display: block;
+  font-family: 'Inter', monospace;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: #C4663D;
+  margin-bottom: 1rem;
+}
+
+.work-item h3 a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Sticky preview panel */
+.work-preview-sticky {
+  position: sticky;
+  top: 12vh;
+}
+
+.work-preview-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 14 / 10;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(26, 26, 26, 0.08), 0 2px 12px rgba(26, 26, 26, 0.04);
+}
+
+.work-preview-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.work-preview-img.active {
+  opacity: 1;
 }
 
 .project-tag {
@@ -263,10 +336,6 @@ a {
   border-radius: 100px;
   padding: 0.3rem 0.75rem;
   transition: all 0.3s ease;
-}
-
-.project-card:hover .project-tag {
-  border-color: rgba(196, 102, 61, 0.25);
 }
 
 /* ─── SKILL PILLS ─── */
@@ -350,7 +419,7 @@ a {
 .section-header,
 .golden-col p,
 .about-meta-item,
-.project-card,
+.work-item,
 .exp-item,
 .skill-pill {
   opacity: 0;
