@@ -1,4 +1,4 @@
-# Rajat Jain — Interactive Portfolio
+# Rajat Jain - Interactive Portfolio
 
 <div align="center">
   <p><strong>A high-performance, physics-enabled portfolio experience built for the modern web.</strong></p>
@@ -13,7 +13,7 @@
 
 This repository contains the source code for the personal portfolio of **Rajat Jain**, Product Builder & Designer, and Google Student Ambassador '25 & '26.
 
-Designed with a focus on absolute performance, fluidity, and premium interactive aesthetics, this site pushes the boundaries of a standard static website. It leverages advanced DOM manipulation, high-performance animation frames, and 2D physics engines—all without the overhead of heavy frontend frameworks.
+Designed with a focus on absolute performance, fluidity, and premium interactive aesthetics, this site pushes the boundaries of a standard static website. It leverages advanced DOM manipulation, high-performance animation frames, and 2D physics engines-all without the overhead of heavy frontend frameworks.
 
 ## Key Features
 

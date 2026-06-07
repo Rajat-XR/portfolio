@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════
-   EDITORIAL PORTFOLIO — Script
+   EDITORIAL PORTFOLIO - Script
    Ecosystem: GSAP + ScrollTrigger + Lenis
    ═══════════════════════════════════════════════════════════════ */
 
@@ -186,7 +186,7 @@ heroTL
   }, '-=0.2');
 
 
-// ─── 5b. HERO PLAYGROUND — GSAP Draggable ───
+// ─── 5b. HERO PLAYGROUND - GSAP Draggable ───
 
 let topZIndex = 10;
 let hintAnimations = []; // Store hint tweens so we can kill them on first interact
@@ -231,7 +231,7 @@ Draggable.create('.draggable-item', {
   },
 });
 
-// ─── 5c. DRAG HINT — Gentle floating nudge ───
+// ─── 5c. DRAG HINT - Gentle floating nudge ───
 // After entrance animation completes, gently float items to hint "I'm draggable"
 heroTL.eventCallback('onComplete', () => {
   document.querySelectorAll('.draggable-item').forEach((item, i) => {
@@ -299,7 +299,7 @@ gsap.utils.toArray('.about-meta-item').forEach((item, i) => {
   });
 });
 
-// Work items — fade in + scrollytelling image swap
+// Work items - fade in + scrollytelling image swap
 const workItems = gsap.utils.toArray('.work-item');
 const previewImages = document.querySelectorAll('.work-preview-img');
 
@@ -319,7 +319,7 @@ workItems.forEach((item, i) => {
   });
 });
 
-// Scrollytelling — activate item + swap image on scroll
+// Scrollytelling - activate item + swap image on scroll
 if (workItems.length && previewImages.length) {
   // Set first item active initially
   workItems[0].classList.add('is-active');
@@ -398,7 +398,7 @@ if (contactSection) {
 }
 
 
-// ─── 7. PHYSICS SANDBOX — Matter.js Skills Playground ───
+// ─── 7. PHYSICS SANDBOX - Matter.js Skills Playground ───
 
 (function () {
   const canvas = document.getElementById('physics-canvas');
@@ -437,7 +437,7 @@ if (contactSection) {
   const runner = Runner.create();
   Runner.run(runner, engine);
 
-  // ── WALLS (Left, Right, Bottom — Top is open so balls drop in) ──
+  // ── WALLS (Left, Right, Bottom - Top is open so balls drop in) ──
   const wallThickness = 60;
   const wallOptions = {
     isStatic: true,
@@ -561,7 +561,7 @@ if (contactSection) {
 
   World.add(world, balls);
 
-  // ── ATTRACTION FORCE — Pull balls gently toward the group center ──
+  // ── ATTRACTION FORCE - Pull balls gently toward the group center ──
   Events.on(engine, 'beforeUpdate', function () {
     // Calculate center of mass of all balls
     let cx = 0, cy = 0;
@@ -584,7 +584,7 @@ if (contactSection) {
     });
   });
 
-  // ── MOUSE INTERACTION — CRITICAL ──
+  // ── MOUSE INTERACTION - CRITICAL ──
   const mouse = Mouse.create(render.canvas);
   const mouseConstraint = MouseConstraint.create(engine, {
     mouse: mouse,
@@ -601,7 +601,7 @@ if (contactSection) {
 
   // Prevent page scroll when interacting with the canvas
   render.canvas.addEventListener('wheel', (e) => {
-    // Allow normal page scrolling — don't prevent default
+    // Allow normal page scrolling - don't prevent default
   });
 
   // Fix: remove mouse offset issues caused by CSS transforms
@@ -704,9 +704,8 @@ if (contactSection) {
     "0": "Open Playful",
     "1": "Visit Web Store",
     "2": "Open Zenithe",
-    "3": "Open ReliefRadar",
-    "4": "Open Aethecraft Studios",
-    "5": "Currently at Capstone"
+    "3": "Open Aethecraft Studios",
+    "4": "View Certificate"
   };
 
   const updateCursorText = () => {

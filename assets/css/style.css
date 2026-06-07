@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════
-   EDITORIAL PORTFOLIO — Custom Styles
+   EDITORIAL PORTFOLIO - Custom Styles
    Tailwind handles layout/spacing. This file handles identity.
    ═══════════════════════════════════════════════════════════════ */
 
@@ -176,7 +176,7 @@ a {
   stroke: #D4884A;
 }
 
-/* Draggable base — prevent outlines and touch artifacts */
+/* Draggable base - prevent outlines and touch artifacts */
 .draggable-item {
   outline: none !important;
   -webkit-tap-highlight-color: transparent;
