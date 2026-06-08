@@ -56,11 +56,21 @@ if (hamburgerBtn && mobileMenu) {
   // Close menu when a link is clicked
   mobileMenu.querySelectorAll('.mobile-menu-link').forEach(link => {
     link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      
+      // If the link is not an anchor on the same page, let it open normally
+      if (!href.startsWith('#')) {
+        mobileMenu.classList.remove('is-open');
+        hamburgerBtn.classList.remove('is-open');
+        document.body.style.overflow = '';
+        return;
+      }
+
       e.preventDefault();
       mobileMenu.classList.remove('is-open');
       hamburgerBtn.classList.remove('is-open');
       document.body.style.overflow = '';
-      const target = document.querySelector(link.getAttribute('href'));
+      const target = document.querySelector(href);
       if (target) {
         lenis.scrollTo(target, { offset: -80 });
       }
@@ -341,10 +351,21 @@ if (workItems.length && previewImages.length) {
     workItems.forEach(it => it.classList.remove('is-active'));
     activeItem.classList.add('is-active');
 
-    // Swap preview image
-    previewImages.forEach(img => img.classList.remove('active'));
+    // Swap preview image & manage videos
+    previewImages.forEach(img => {
+      img.classList.remove('active');
+      if (img.tagName === 'VIDEO') {
+        img.pause();
+      }
+    });
     const target = document.querySelector(`.work-preview-img[data-index="${idx}"]`);
-    if (target) target.classList.add('active');
+    if (target) {
+      target.classList.add('active');
+      if (target.tagName === 'VIDEO') {
+        target.currentTime = 0;
+        target.play().catch(e => console.log('Video play interrupted:', e));
+      }
+    }
   }
 }
 
@@ -469,7 +490,7 @@ if (contactSection) {
     { type: 'pill', text: 'Django' },
     { type: 'pill', text: 'Python' },
     { type: 'pill', text: 'Vite' },
-    
+
     { type: 'icon', src: 'assets/images/logos/React.png', bg: '#F0F0F0' },
     { type: 'icon', src: 'assets/images/logos/Typescript.png', bg: '#F0F0F0' },
     { type: 'icon', src: 'assets/images/logos/Figma-logo.png', bg: '#F0F0F0' },
@@ -493,11 +514,11 @@ if (contactSection) {
 
   // ── CREATE BODIES ──
   const balls = [];
-  
+
   // Use a temp canvas to measure text
   const tempCanvas = document.createElement('canvas');
   const tempCtx = tempCanvas.getContext('2d');
-  
+
   const colors = ['#1A1A1A', '#C4663D', '#8B7355'];
   let colorIdx = 0;
 
@@ -519,10 +540,10 @@ if (contactSection) {
       const fontSize = 20; // Increased font size
       tempCtx.font = `600 ${fontSize}px Inter, system-ui, sans-serif`;
       const textWidth = tempCtx.measureText(skill.text).width;
-      
+
       const width = textWidth + 60; // Increased padding
       const height = 64; // Increased height
-      
+
       const pillColor = colors[colorIdx++ % colors.length];
 
       body = Bodies.rectangle(x, y, width, height, {
@@ -534,14 +555,14 @@ if (contactSection) {
           lineWidth: 0,
         }
       });
-      
+
       body._isPill = true;
       body._text = skill.text;
       body._fontSize = fontSize;
       body._textColor = pillColor === '#1A1A1A' ? '#FAF9F6' : '#FAF9F6';
     } else {
       const radius = 50 + Math.random() * 12; // Increased icon radius
-      
+
       body = Bodies.circle(x, y, radius, {
         ...commonOptions,
         render: {
@@ -550,7 +571,7 @@ if (contactSection) {
           lineWidth: 1,
         }
       });
-      
+
       body._isIcon = true;
       body._img = skill.img;
       body._radius = radius;
@@ -626,7 +647,7 @@ if (contactSection) {
       } else if (body._isIcon) {
         if (body._img && body._img.complete) {
           const size = body._radius * 1.1; // Scale icon to fit inside circle
-          ctx.drawImage(body._img, -size/2, -size/2, size, size);
+          ctx.drawImage(body._img, -size / 2, -size / 2, size, size);
         }
       }
 
@@ -659,14 +680,14 @@ if (contactSection) {
 })();
 
 // ── 8. CUSTOM INTERACTIVE CURSOR ──
-(function() {
+(function () {
   const cursor = document.getElementById('custom-cursor');
   if (!cursor || window.innerWidth < 768) return;
-  
+
   const cursorContent = cursor.querySelector('.cursor-content');
   const cursorText = cursor.querySelector('.cursor-text');
   const cursorIcon = cursor.querySelector('.cursor-icon');
-  
+
   // Enable custom cursor mode globally (hides default cursor)
   document.body.classList.add('has-custom-cursor');
 
@@ -684,11 +705,11 @@ if (contactSection) {
     currentMouseY = e.clientY;
 
     // Reveal cursor only on first move
-    if(!hasMoved) {
+    if (!hasMoved) {
       gsap.to(cursor, { opacity: 1, duration: 0.5 });
       hasMoved = true;
     }
-    
+
     xTo(e.clientX);
     yTo(e.clientY);
   });
@@ -697,15 +718,17 @@ if (contactSection) {
   gsap.set(cursor, { width: 16, height: 16, backgroundColor: '#1A1A1A' });
 
   // 1. Projects Hover (Dark Pill with Dynamic Text)
-  const workSection = document.getElementById('work'); 
+  const workSection = document.getElementById('work');
   let isHoveringWork = false;
 
   const cursorTextMap = {
     "0": "Open Playful",
     "1": "Visit Web Store",
     "2": "Open Zenithe",
-    "3": "Open Aethecraft Studios",
-    "4": "View Certificate"
+    "3": "View Official Post",
+    "4": "View Certificate",
+    "5": "Visit Page",
+    "6": "Open Aethecraft Studios"
   };
 
   const updateCursorText = () => {
@@ -723,14 +746,14 @@ if (contactSection) {
     isHoveringWork = true;
     cursorIcon.classList.remove('hidden');
     updateCursorText();
-    
-    gsap.to(cursor, { 
-      width: 220, 
-      height: 36, 
+
+    gsap.to(cursor, {
+      width: 220,
+      height: 36,
       backgroundColor: '#1A1A1A', // Dark Pill
       mixBlendMode: 'normal',
-      duration: 0.4, 
-      ease: 'back.out(1.5)' 
+      duration: 0.4,
+      ease: 'back.out(1.5)'
     });
     gsap.set(cursorContent, { opacity: 1, scale: 1 });
   };
@@ -739,16 +762,16 @@ if (contactSection) {
     if (!isHoveringWork) return;
     isHovering = false;
     isHoveringWork = false;
-    gsap.to(cursor, { 
-      width: 16, 
-      height: 16, 
-      backgroundColor: '#1A1A1A', 
+    gsap.to(cursor, {
+      width: 16,
+      height: 16,
+      backgroundColor: '#1A1A1A',
       mixBlendMode: 'normal',
-      duration: 0.3, 
-      ease: 'power3.out' 
+      duration: 0.3,
+      ease: 'power3.out'
     });
     gsap.set(cursorContent, { opacity: 0, scale: 0.5 });
-    setTimeout(() => { if(!isHovering) cursorIcon.classList.add('hidden'); }, 200);
+    setTimeout(() => { if (!isHovering) cursorIcon.classList.add('hidden'); }, 200);
   };
 
   if (workSection) {
@@ -791,31 +814,31 @@ if (contactSection) {
   const footerName = document.getElementById('footer-name');
   if (footerName) {
     footerName.style.cursor = 'none';
-    
+
     footerName.addEventListener('mouseenter', () => {
       isHovering = true;
       cursorIcon.classList.add('hidden');
       cursorText.textContent = "Product Designer";
-      
-      gsap.to(cursor, { 
-        width: 150, 
+
+      gsap.to(cursor, {
+        width: 150,
         height: 36,
-        backgroundColor: '#1A1A1A', 
-        mixBlendMode: 'normal', 
+        backgroundColor: '#1A1A1A',
+        mixBlendMode: 'normal',
         scale: 1,
         duration: 0.4,
         ease: 'back.out(1.5)'
       });
       gsap.set(cursorContent, { opacity: 1, scale: 1 });
     });
-    
+
     footerName.addEventListener('mouseleave', () => {
       isHovering = false;
-      gsap.to(cursor, { 
-        width: 16, 
-        height: 16, 
-        backgroundColor: '#1A1A1A', 
-        mixBlendMode: 'normal', 
+      gsap.to(cursor, {
+        width: 16,
+        height: 16,
+        backgroundColor: '#1A1A1A',
+        mixBlendMode: 'normal',
         scale: 1,
         duration: 0.3,
         ease: 'power3.out'
@@ -823,4 +846,46 @@ if (contactSection) {
       gsap.set(cursorContent, { opacity: 0, scale: 0.5 });
     });
   }
+
+  // 3. Generic Dynamic Hover (elements with data-cursor-text attribute)
+  const hoverCards = document.querySelectorAll('[data-cursor-text]');
+  hoverCards.forEach(card => {
+    card.style.cursor = 'none';
+
+    card.addEventListener('mouseenter', () => {
+      isHovering = true;
+      cursorIcon.classList.remove('hidden');
+      cursorText.textContent = card.getAttribute('data-cursor-text');
+
+      const textLength = card.getAttribute('data-cursor-text').length;
+      const pillWidth = Math.max(130, textLength * 9 + 30);
+
+      gsap.to(cursor, {
+        width: pillWidth,
+        height: 36,
+        backgroundColor: '#1A1A1A',
+        mixBlendMode: 'normal',
+        scale: 1,
+        duration: 0.4,
+        ease: 'back.out(1.5)'
+      });
+      gsap.set(cursorContent, { opacity: 1, scale: 1 });
+    });
+
+    card.addEventListener('mouseleave', () => {
+      isHovering = false;
+      gsap.to(cursor, {
+        width: 16,
+        height: 16,
+        backgroundColor: '#1A1A1A',
+        mixBlendMode: 'normal',
+        scale: 1,
+        duration: 0.3,
+        ease: 'power3.out'
+      });
+      gsap.set(cursorContent, { opacity: 0, scale: 0.5 });
+      setTimeout(() => { if (!isHovering) cursorIcon.classList.add('hidden'); }, 200);
+    });
+  });
+
 })();
